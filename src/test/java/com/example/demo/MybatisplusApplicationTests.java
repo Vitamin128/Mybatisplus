@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
 import tools.jackson.databind.ObjectMapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -30,11 +31,16 @@ class MybatisplusApplicationTests {
 //        wrapper.between(User::getAge,20,30).eq(User::getStatus,"ACTIVE");
 //        List<User> object=UserService.list(wrapper);
 //        System.out.println(object);
-        ObjectMapper objectMapper=new ObjectMapper();
+//        ObjectMapper objectMapper=new ObjectMapper();
+//
+//        Page<User> user=Page.of(0,3);
+//        Page<User> result= UserService.page(user);
+//        User user1=result.getRecords().get(1);
+//        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result.getRecords()));
+        Orders orders=new Orders();
+        orders.setId(5L);
+        orders.setUpdateTime(LocalDateTime.now());
 
-        Page<User> user=Page.of(0,3);
-        Page<User> result= UserService.page(user);
-        User user1=result.getRecords().get(1);
-        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result.getRecords()));
+        OrdersService.updateById(orders);
     }
 }
