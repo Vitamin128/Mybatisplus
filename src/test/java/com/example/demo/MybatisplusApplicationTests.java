@@ -1,12 +1,17 @@
 package com.example.demo;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.demo.dao.Orders;
 import com.example.demo.dao.User;
+import com.example.demo.service.OrdersService;
 import com.example.demo.service.UserService;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
@@ -16,11 +21,20 @@ class MybatisplusApplicationTests {
     @Autowired
     UserService UserService;
 
+    @Autowired
+    OrdersService OrdersService;
+
     @Test
     void contextLoads() {
-        LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<User>();
-        wrapper.between(User::getAge,20,30).eq(User::getStatus,"ACTIVE");
-        List<User> object=UserService.list(wrapper);
-        System.out.println(object);
+//        LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<User>();
+//        wrapper.between(User::getAge,20,30).eq(User::getStatus,"ACTIVE");
+//        List<User> object=UserService.list(wrapper);
+//        System.out.println(object);
+        ObjectMapper objectMapper=new ObjectMapper();
+
+        Page<User> user=Page.of(0,3);
+        Page<User> result= UserService.page(user);
+        User user1=result.getRecords().get(1);
+        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result.getRecords()));
     }
 }
