@@ -19,8 +19,8 @@ class MybatisplusApplicationTests {
     @Test
     void contextLoads() {
         LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<User>();
-        wrapper.eq(User::getStatus,"AVTIVE").eq(User::getDeleted,0);
+        wrapper.ge(User::getAge,25).eq(User::getStatus,"ACTIVE");
         List<User> object=UserService.list(wrapper);
-        System.out.println(object.size());
+        System.out.println(object);
     }
 }
