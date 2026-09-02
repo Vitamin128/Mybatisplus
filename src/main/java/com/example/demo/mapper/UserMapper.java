@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.demo.dao.Product;
 import com.example.demo.dao.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,5 +13,6 @@ public interface UserMapper
         extends BaseMapper<User> {
     User SelectUserById(@Param("id") int id);
     List<User> SelectUserByStatus(String status);
-
+    List<Product> SelectProductById(int id);
+    int InsertUser(String username,int age);
 }

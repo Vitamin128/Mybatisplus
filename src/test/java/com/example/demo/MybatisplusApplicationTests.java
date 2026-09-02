@@ -49,7 +49,9 @@ class MybatisplusApplicationTests {
 //        User userdemo=userMapper.SelectUserById(2);
 //        System.out.println(userdemo);
 //        System.out.println(UserService.SelectUserById(4));
-    System.out.println(UserService.SelectUserByStatus("ACTIVE"));
+//    System.out.println(UserService.SelectUserByStatus("ACTIVE"));
+        System.out.println(UserService.InsertUser("小明",50));
+//        System.out.println(UserService.SelectProductById(1));
     }
 
 }
