@@ -7,6 +7,8 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl
         extends ServiceImpl<UserMapper, User>
@@ -14,5 +16,11 @@ public class UserServiceImpl
     @Override
     public User SelectUserById(int id) {
         return baseMapper.SelectUserById(id);
+    }
+
+    @Override
+    public List<User> SelectUserByStatus(String status)
+    {
+        return baseMapper.SelectUserByStatus(status);
     }
 }

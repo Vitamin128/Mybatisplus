@@ -48,6 +48,8 @@ class MybatisplusApplicationTests {
 //        OrdersService.updateById(orders);
 //        User userdemo=userMapper.SelectUserById(2);
 //        System.out.println(userdemo);
-        System.out.println(UserService.SelectUserById(4));
+//        System.out.println(UserService.SelectUserById(4));
+    System.out.println(UserService.SelectUserByStatus("ACTIVE"));
     }
+
 }
