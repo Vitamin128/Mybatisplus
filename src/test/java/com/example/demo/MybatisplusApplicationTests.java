@@ -6,6 +6,8 @@ import com.example.demo.dao.Orders;
 import com.example.demo.dao.User;
 import com.example.demo.service.OrdersService;
 import com.example.demo.service.UserService;
+import com.example.demo.test.PayService;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,28 +21,21 @@ import java.util.List;
 @SpringBootTest
 class MybatisplusApplicationTests {
 
-    @Autowired
-    UserService UserService;
+//    @Autowired
+//    UserService UserService;
 
-    @Autowired
-    OrdersService OrdersService;
+//    @Autowired
+//    OrdersService OrdersService;
+
+//    @Resource
+//    OrdersService ordersService;
+
+    @Resource
+    private PayService alipayService;
 
     @Test
     void contextLoads() {
-//        LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<User>();
-//        wrapper.between(User::getAge,20,30).eq(User::getStatus,"ACTIVE");
-//        List<User> object=UserService.list(wrapper);
-//        System.out.println(object);
-//        ObjectMapper objectMapper=new ObjectMapper();
-//
-//        Page<User> user=Page.of(0,3);
-//        Page<User> result= UserService.page(user);
-//        User user1=result.getRecords().get(1);
-//        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result.getRecords()));
-        Orders orders=new Orders();
-        orders.setId(5L);
-        orders.setUpdateTime(LocalDateTime.now());
 
-        OrdersService.updateById(orders);
+        alipayService.contextLoads();
     }
 }
