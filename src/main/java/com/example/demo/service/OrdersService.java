@@ -5,4 +5,5 @@ import com.example.demo.dao.Orders;
 
 public interface OrdersService
         extends IService<Orders> {
+    //
 }
