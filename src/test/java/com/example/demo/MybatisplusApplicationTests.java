@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.dao.Orders;
 import com.example.demo.dao.User;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.OrdersService;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Order;
@@ -25,6 +26,9 @@ class MybatisplusApplicationTests {
     @Autowired
     OrdersService OrdersService;
 
+//    @Autowired
+//    UserMapper userMapper;
+
     @Test
     void contextLoads() {
 //        LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<User>();
@@ -37,10 +41,13 @@ class MybatisplusApplicationTests {
 //        Page<User> result= UserService.page(user);
 //        User user1=result.getRecords().get(1);
 //        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result.getRecords()));
-        Orders orders=new Orders();
-        orders.setId(5L);
-        orders.setUpdateTime(LocalDateTime.now());
+//        Orders orders=new Orders();
+//        orders.setId(5L);
+//        orders.setUpdateTime(LocalDateTime.now());
 
-        OrdersService.updateById(orders);
+//        OrdersService.updateById(orders);
+//        User userdemo=userMapper.SelectUserById(2);
+//        System.out.println(userdemo);
+        System.out.println(UserService.SelectUserById(4));
     }
 }
